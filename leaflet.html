@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Top 10 Places I want to visit!</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+<style>
+#map {width: 1895px; height: 1150px}
+</style>
+<body>
+<div id="map"></div>
+</body>
+<script>
+var map_center = [49.761152394043044, 10.336624633660605];
+var mapOptions = {
+  center: map_center,
+  zoom: 5.5
+}
+var map = L.map('map', mapOptions);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 15,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+// Places
+dublin_latlong = [50.11321063841616, 8.668645299799739];
+dublin_marker = L.marker(dublin_latlong).addTo(map);
+
+ireland_latlong = [53.249412265203595, -8.239651816657318];
+ireland_circle = L.circle(ireland_latlong, {radius: 1000000, color: 'red'}).addTo(map);
+
+morocco_latlong = [32.15515091989612, -6.353124403566075];
+morocco_marker = L.marker(morocco_latlong).addTo(map);
+
+vienna_latlong = [48.595687843930264, 16.236710977215477];
+vienna_marker = L.marker(vienna_latlong).addTo(map);
+
+greece_latlong = [39.57091473914959, 22.59270525205671];
+greece_marker = L.marker(greece_latlong).addTo(map);
+
+sweden_latlong = [62.97575995044587, 16.458431820301733];
+sweden_marker = L.marker(sweden_latlong).addTo(map);
+
+spain_latlong = [39.77279076088266, -3.5058558246571643];
+spain_marker = L.marker(spain_latlong).addTo(map);
+
+souh_korea_latlong = [36.847576904229335, 127.62654311426842];
+souh_korea_circle = L.circle(souh_korea_latlong, {radius: 1000000, color: 'red'}).addTo(map);
+
+var polyline_latlngs = [
+    [[52.33049070770212, 10.484551022553775],
+     [49.761152394043044, 10.336624633660605],
+     [46.58794105059169, 10.35007248791927],
+     [49.761152394043044, 10.336624633660605],
+     [52.37156193798918, 13.34894382566701],
+     [49.761152394043044, 10.336624633660605],
+     [46.827698154349136, 13.954097235498372],
+    ],
+    [[40.78, -73.91],
+     [41.83, -87.62],
+     [32.76, -96.72]]
+];
+polyline = L.polyline(polyline_latlngs, {color: 'red'}).addTo(map);
+
+</script>
+</html>
